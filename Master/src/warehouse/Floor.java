@@ -9,6 +9,7 @@ package warehouse;
  *
  * @author wenchwang
  */
+//assume Floor event takes 4 tick
 public class Floor implements Tickable,Task{
 		
 		Master master;
@@ -20,7 +21,7 @@ public class Floor implements Tickable,Task{
 		
 		public void tick(int count){
 			currentTime = count;
-			//floorTime(count);
+			
 		}
 		
 		public void fire(Object arg){
@@ -30,11 +31,9 @@ public class Floor implements Tickable,Task{
 		}
 		
 		public void enqueue(Object arg){
-			Event e = new Event(currentTime+5,arg,this);
+			Event e = new Event(currentTime+4,arg,this);
 			master.enqueue(e);
 		}
 		
-		/*public void floorTime(int count){
-			System.out.println("floor ticked at time: " + count);
-		}*/
+		
 	}

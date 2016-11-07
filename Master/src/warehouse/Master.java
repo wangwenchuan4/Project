@@ -2,30 +2,45 @@
 package warehouse;
 
 import java.util.*;
+
 public class Master {
     
     private PriorityQueue<Event> eventQueue;
 	private int count;
-	private Visualizer vis;
-	private Floor flo;
-	private Belts bel;
-	private Inventory inv;
-	private Order ord;
-	private Robot rob;
-        
-        Comparator<Event> comparator;
-
 	
+	private Robot rob;
+	private Floor flo;
+	private Order ord;
+	private Inventory inv;
+    private Belts bel;
+    private Visualizer vis;
+    Comparator<Event> comparator;
+    
+    public class EventComparator implements Comparator<Event>{
+	    
+	    public int compare(Event e1, Event e2){
+	    	if (e1.getTime() < e2.getTime()){
+	    		return -1;
+	    	}
+	    	else if (e1.getTime() > e2.getTime()){
+	    		return 1;
+	    	}
+	    	else {
+	    	return 0;
+	    	}
+	    }
+	}
+    
 	
 	//loop to run the simulation	
 public void Run(int limit) {
 	  
     Master m = new Master( );
-    boolean status = true;		
+    
     m.tickCount();
     m.createEvents();
 		
-		while (status){
+		while (true){
                     
 			m.increaseCount();
 			m.tickCount();
@@ -67,50 +82,42 @@ public void Run(int limit) {
 
 public Master(){
 		
-		comparator = new EventComparator();
-		eventQueue = new PriorityQueue<Event>(50,comparator);
+		
 		count = 0;
-                //all the other components probably need to know about a Master object
-                //(perhaps as a parameter in their constructors).
-		vis = new Visualizer(this);
+        //all the other components probably need to know about a Master object
+		//(perhaps as a parameter in their constructors).
+		
+		rob = new Robot(this);
 		flo = new Floor(this);
 		bel = new Belts(this);
 		inv = new  Inventory(this);
 		ord = new Order(this);
-		rob = new Robot(this);
+		vis = new Visualizer(this);
+		comparator = new EventComparator();
+		eventQueue = new PriorityQueue<Event>(50,comparator);
 	}
         
         
-        public class EventComparator implements Comparator<Event>{
-	    @Override
-	    public int compare(Event e1, Event e2){
-	    	if (e1.getTime() < e2.getTime()){
-	    		return -1;
-	    	}
-	    	else if (e1.getTime() > e2.getTime()){
-	    		return 1;
-	    	}
-	    	return 0;
-	    }
-	}
+        
+
 	
 	 //initializing the queue with some initial events
 	public void createEvents(){
-		vis.enqueue("Initial visualizer event: ");
+		rob.enqueue("Initial robot event: ");
 		flo.enqueue("Initial floor event: ");
 		bel.enqueue("Initial belts event: ");
 		inv.enqueue("Initial inventory event: ");
 		ord.enqueue("Initial orders event: ");
-		rob.enqueue("Initial robot event: ");
+		vis.enqueue("Initial visualizer event: ");
 	}
 	
 	public void tickCount(){
-		vis.tick(count);
+		rob.tick(count);
 		flo.tick(count);
 		bel.tick(count);
 		inv.tick(count);
 		ord.tick(count);
-		rob.tick(count);
+		vis.tick(count);
 	}
 	//count the time
 	public int getCount(){

@@ -9,6 +9,7 @@ package warehouse;
  *
  * @author wenchwang
  */
+//assume Visualizer event takes 3 tick
 public class Visualizer implements Tickable,Task{
 		
 		Master master;
@@ -20,7 +21,7 @@ public class Visualizer implements Tickable,Task{
 		
 		public void tick(int count){
 			currentTime = count;
-			//visualizerTime(count);
+			
 		}
 		
 		public void fire(Object arg){
@@ -34,7 +35,5 @@ public class Visualizer implements Tickable,Task{
 			master.enqueue(e);
 		}
 		
-		/*public void visualizerTime(int count){
-			System.out.println("Visualizer at time: " + count);
-		}*/
+		
 	}

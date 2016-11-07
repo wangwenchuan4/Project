@@ -5,24 +5,21 @@
  */
 package warehouse;
 
-/**
- *
- * @author wenchwang
- */
+
 public  class Event{
 		
-		private int time;
-		private Task whoCalled;
+		private int count;
+		private Task caller;
 		private Object argument;
 		
 		public Event(int t, Object arg, Task who) {
-			time = t;
+			count = t;
 			argument = arg;
-			whoCalled = who;
+			caller = who;
 		}
 		
 		public int getTime(){
-			return time;
+			return count;
 		}
 		
 		public Object getArgument(){
@@ -30,6 +27,6 @@ public  class Event{
 		}
 		
 		public Task getwhoCalled(){
-			return whoCalled;
+			return caller;
 		}
 	}

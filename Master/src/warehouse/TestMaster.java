@@ -10,7 +10,7 @@ public class TestMaster {
    @Test
    public void test() {
        Master m=new Master();
-        m.Run(20);
+        m.Run(26);
        
        
    }

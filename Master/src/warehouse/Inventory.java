@@ -9,6 +9,7 @@ package warehouse;
  *
  * @author wenchwang
  */
+//assume Inventory event takes 6 tick
 public class Inventory implements Tickable,Task{
 		
 		Master master;
@@ -20,7 +21,7 @@ public class Inventory implements Tickable,Task{
 		
 		public void tick(int count){
 			currentTime = count;
-			//InventoryAtTime(count);
+			
 		}
 		
 		public void fire(Object arg){
@@ -30,12 +31,10 @@ public class Inventory implements Tickable,Task{
 		}
 		
 		public void enqueue(Object arg){
-			Event e = new Event(currentTime+8,arg,this);
+			Event e = new Event(currentTime+6,arg,this);
 			master.enqueue(e);
 			
 		}
 		
-		/*public void InventoryAtTime(int count){
-			System.out.println("Inventory at time: " + count);
-		}*/
+		
 	}

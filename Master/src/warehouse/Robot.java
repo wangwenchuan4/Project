@@ -13,6 +13,7 @@ package warehouse;
  *
  * @author wenchwang
  */
+//assume robot event takes 5 tick
 public class Robot implements Tickable,Task {
     	Master master;
         int currentTime;
@@ -24,7 +25,7 @@ public class Robot implements Tickable,Task {
     
     public void tick(int count){
 			currentTime = count;
-			//moveRobot(count);
+			
 		}
 		
 		
@@ -37,15 +38,12 @@ public class Robot implements Tickable,Task {
                 
     
     public void enqueue(Object arg){
-			Event e = new Event(currentTime+6,arg,this);
+			Event e = new Event(currentTime+5,arg,this);
 			// add another (future) event to the Master's queue
                         master.enqueue(e);
 		}
 		
 
-   /* public void moveRobot(int count){
-			System.out.println("Robot moved at time: " + count);
-		}
-     */           
+          
                 
 }

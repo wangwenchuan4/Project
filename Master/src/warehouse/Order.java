@@ -9,6 +9,7 @@ package warehouse;
  *
  * @author wenchwang
  */
+//assume order event takes 5 tick
 public class Order implements Tickable,Task{
 		
 		Master master;
@@ -20,21 +21,20 @@ public class Order implements Tickable,Task{
 		
 		public void tick(int count){
 			currentTime = count;
-			//orderTime(count);
+			
 		}
 		
 		public void fire(Object arg){
 			System.out.print(arg);
 			System.out.println(currentTime);
+			
 			enqueue("Orders event happened at: ");
 		}
 		
 		public void enqueue(Object arg){
-			Event e = new Event(currentTime+7,arg,this);
+			Event e = new Event(currentTime+5,arg,this);
 			master.enqueue(e);
 		}
 		
-		/*public void orderTime(int count){
-			System.out.println("Order at time: " + count);
-		}*/
+		
 	}

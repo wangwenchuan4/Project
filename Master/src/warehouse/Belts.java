@@ -9,6 +9,7 @@ package warehouse;
  *
  * @author wenchwang
  */
+//assume belts event takes 1 tick
 class Belts implements Tickable,Task{
 		
 		Master master;
@@ -20,7 +21,7 @@ class Belts implements Tickable,Task{
 		
 		public void tick(int count){
 			currentTime = count;
-			//moveBelt(count);
+			
 		}
 		
 		public void fire(Object arg){
@@ -34,7 +35,5 @@ class Belts implements Tickable,Task{
 			master.enqueue(e);
 		}
 		
-		/*public void moveBelt(int count){
-			System.out.println("Belt moved at time: " + count);
-		}*/
+		
 	}
