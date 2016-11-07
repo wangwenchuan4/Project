@@ -3,11 +3,12 @@ public class Item {
 	
 	String itemName;
 	int serialNumber;
-	int numberInStock;
+	int shelfNumber;
 
-	public Item(String itemName, int serialNumber, int numberInStock) {
+	public Item(String itemName, int serialNumber, int shelfNumber) {
 		this.itemName = itemName;
 		this.serialNumber = serialNumber;
+		this.shelfNumber = shelfNumber;
 	}
 	
 	public String getItemName() {
@@ -18,15 +19,15 @@ public class Item {
 		return serialNumber;
 	}
 	
-	public int getNumberInStock() {
-		return numberInStock;
+	public int getShelfNumber() {
+		return shelfNumber;
 	}
 	
-	public void stockItem(int quantity) {
-		numberInStock += quantity;
-	}
-	
-	public void removeItem(int quantity) {
-		numberInStock -= quantity;
+	/**
+	 * In case it's needed, updates the items shelf number.
+	 * @param newShelfNumber the new shelf number.
+	 */
+	public void changeShelf(int newShelfNumber) {
+		shelfNumber = newShelfNumber;
 	}
 }
