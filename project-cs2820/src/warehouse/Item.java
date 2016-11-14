@@ -1,51 +1,34 @@
+package warehouse;
 
 public class Item {
 	
+	String itemName;
+	int serialNumber;
+	int shelfNumber;
+
+	public Item(String itemName, int serialNumber, int shelfNumber) {
+		this.itemName = itemName;
+		this.serialNumber = serialNumber;
+		this.shelfNumber = shelfNumber;
+	}
+	
+	public String getItemName() {
+		return itemName;
+	}
+	
+	public int getSerialNumber() {
+		return serialNumber;
+	}
+	
+	public int getShelfNumber() {
+		return shelfNumber;
+	}
+	
 	/**
-	 * @author Casey Kolodziejczyk
-	 *
-	 * We're not using this Item. But I already have it written here for testing purposes
+	 * In case it's needed, updates the items shelf number.
+	 * @param newShelfNumber the new shelf number.
 	 */
-	
-	String status;
-	String name;
-	int number;
-	String iLocation;
-	
-/**
- * @author Casey Kolodziejczyk
- * @param num
- * @param iName
- * Creates an Item object, everything below it are simple methods to get variables or change variables 
- */
-	public Item(int num, String iName) {
-		name = iName;
-		number = num;
+	public void changeShelf(int newShelfNumber) {
+		shelfNumber = newShelfNumber;
 	}
-	
-	public void updateStatus(String update) {
-		status = update; 
-	}
-	
-	public void updateLocation(String update) {
-		iLocation = update;
-	}
-	
-	public String getStatus() {
-		return status;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public String getLocation() {
-		return iLocation;
-	}
-	
-	// for Testing
-	 @Override
-		public String toString() {
-		      	return ("" + name + "");
-		   }
 }
