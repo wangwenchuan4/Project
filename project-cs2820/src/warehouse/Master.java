@@ -2,6 +2,10 @@
 package warehouse;
 
 import java.util.*;
+/**
+ *  @author wenchuan wang
+ * master class is the main program to run the simulation  
+ */
 
 public class Master {
     
@@ -15,7 +19,11 @@ public class Master {
     private Belts bel;
     private Visualizer vis;
     Comparator<Event> comparator;
-    
+    /**
+     * @author wenchuan wang
+     * EventComparator compares the events by its time in the priority queue
+     * 
+     */
     public class EventComparator implements Comparator<Event>{
 	    
 	    public int compare(Event e1, Event e2){
@@ -30,7 +38,11 @@ public class Master {
 	    	}
 	    }
 	}
-    
+    /**
+     * @author wenchuan wang
+     * @param limit 
+     * it runs the simulation in given time and remove events that happened from the queue
+     */
 	
 	//loop to run the simulation	
 public void Run(int limit) {
@@ -79,7 +91,11 @@ public void Run(int limit) {
 		ord = order;
 		rob = robot;
 	}*/
-
+/**
+ * @author wenchuan wang
+ * master constructors create an instance of all component and the priority queue to store the events
+ * 
+ */
 public Master(){
 		
 		
@@ -97,10 +113,12 @@ public Master(){
 		eventQueue = new PriorityQueue<Event>(50,comparator);
 	}
         
-        
-        
+        /**
+         * @author wenchuan wang
+         * it creates the initial events for all the project and put them into
+         * into a queue
+         */
 
-	
 	 //initializing the queue with some initial events
 	public void createEvents(){
 		rob.enqueue("Initial robot event: ");
@@ -110,7 +128,10 @@ public Master(){
 		ord.enqueue("Initial orders event: ");
 		vis.enqueue("Initial visualizer event: ");
 	}
-	
+	/**
+         * @author wenchuan wang
+         * tick value of its component 
+         */
 	public void tickCount(){
 		rob.tick(count);
 		flo.tick(count);
@@ -119,28 +140,97 @@ public Master(){
 		ord.tick(count);
 		vis.tick(count);
 	}
+        /**
+         * @author wenchuan wang
+         * @return the current tick time
+         */
 	//count the time
 	public int getCount(){
 		return count;
 	}
+        /**
+         * @author wenchuan wang
+         * this function increase the time by 1
+         * 
+         */
 	//increase the time
 	public void increaseCount(){
 		count++;
 	}
+        
+        /**
+         * @author wenchuan wang
+         * @return event e
+		 * return event e that is going to implement its functionality
+         */
 	//the head of this queue, or null if this queue is empty but does not remove
 	public Event peek(){
 		return eventQueue.peek();
 	}
-	// Once fire(arg) is running, it can invoke Master.enqueue(newEvent) to add another (future) event to the Master's queue
+        
+	/**
+         * @author wenchuan wang
+         * @param e
+         * Once fire(arg) is running, it can invoke Master.enqueue(newEvent) to add another (future) event to the Master's queue
+         */
+	
 	public void enqueue(Event e){
 		eventQueue.add(e);
 	}
 	
+	/**
+         * @author wenchuan wang
+         * @return event at the top of the queue
+         */
 	public Event dequeue(){
 		return eventQueue.poll();
 		//Retrieves and removes the head of this queue, or returns null if this queue is empty.
 	}
 	
+	/**
+	 * @author wenchuan wang
+	 * 
+	 * This is the event class used by components to create events that will
+	 * do something in the future.
+	 */
 	
+	public  class Event{
+		
+		private int count;
+		private Task caller;
+		private Object argument;
+		
+		/**
+		 * @author wenchuan wang
+		 * @param t, arg, who
+		 * int t (time), Object arg (argument passed by component), Task who
+		 * (the component that created the event)
+		 * constructor of the event class
+		 */
+		public Event(int t, Object arg, Task who) {
+			count = t;
+			argument = arg;
+			caller = who;
+		}
+		/**
+		 * @author wenchuan wang
+		 * 
+		 * @return int time (time the event happened)
+		 * 
+		 * it returns when the event happened
+		 */
+		public int getTime(){
+			return count;
+		}
+		
+		
+		public Object getArgument(){
+			return argument;
+		}
+		
+		public Task getwhoCalled(){
+			return caller;
+		}
+	}
 	
 }
