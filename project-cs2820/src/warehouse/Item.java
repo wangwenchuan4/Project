@@ -12,10 +12,20 @@ public class Item {
 		this.shelfNumber = shelfNumber;
 	}
 	
+	/**
+	 * Gets the item name
+	 * @author Grant Gertsen
+	 * @return the item name
+	 */
 	public String getItemName() {
 		return itemName;
 	}
 	
+	/**
+	 * Gets the item serial number
+	 * @author Grant Gertsen
+	 * @return the serial number
+	 */
 	public int getSerialNumber() {
 		return serialNumber;
 	}
