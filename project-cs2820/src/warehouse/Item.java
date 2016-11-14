@@ -1,44 +1,51 @@
-package warehouse;
 
 public class Item {
 	
-	String itemName;
-	int serialNumber;
-	int shelfNumber;
-
-	public Item(String itemName, int serialNumber, int shelfNumber) {
-		this.itemName = itemName;
-		this.serialNumber = serialNumber;
-		this.shelfNumber = shelfNumber;
-	}
-	
 	/**
-	 * Gets the item name
-	 * @author Grant Gertsen
-	 * @return the item name
+	 * @author Casey Kolodziejczyk
+	 *
+	 * We're not using this Item. But I already have it written here for testing purposes
 	 */
-	public String getItemName() {
-		return itemName;
+	
+	String status;
+	String name;
+	int number;
+	String iLocation;
+	
+/**
+ * @author Casey Kolodziejczyk
+ * @param num
+ * @param iName
+ * Creates an Item object, everything below it are simple methods to get variables or change variables 
+ */
+	public Item(int num, String iName) {
+		name = iName;
+		number = num;
 	}
 	
-	/**
-	 * Gets the item serial number
-	 * @author Grant Gertsen
-	 * @return the serial number
-	 */
-	public int getSerialNumber() {
-		return serialNumber;
+	public void updateStatus(String update) {
+		status = update; 
 	}
 	
-	public int getShelfNumber() {
-		return shelfNumber;
+	public void updateLocation(String update) {
+		iLocation = update;
 	}
 	
-	/**
-	 * In case it's needed, updates the items shelf number.
-	 * @param newShelfNumber the new shelf number.
-	 */
-	public void changeShelf(int newShelfNumber) {
-		shelfNumber = newShelfNumber;
+	public String getStatus() {
+		return status;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getLocation() {
+		return iLocation;
+	}
+	
+	// for Testing
+	 @Override
+		public String toString() {
+		      	return ("" + name + "");
+		   }
 }
