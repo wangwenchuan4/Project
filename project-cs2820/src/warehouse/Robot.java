@@ -4,7 +4,7 @@ import java.util.List;
  *
  * @author Andrew Marburg
  *  changed my Robot class constructors to be based heavily on @author tedherman's example
- * most of it will not be testable since we don't have a floor/shelf/picker class yet
+ * 
  */
 
 
