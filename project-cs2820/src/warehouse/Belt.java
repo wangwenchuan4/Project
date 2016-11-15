@@ -48,6 +48,10 @@ public class Belt implements Tickable {
 		return currentBins;
 	}
 	
+	/**
+	 * Returns the number of bins currently on the Belt
+	 * @return
+	 */
 	public int getNumberOfBins() {
 		return currentBins.size();
 	}
@@ -69,6 +73,9 @@ public class Belt implements Tickable {
 		//remove bin
 	}
 
+	/**
+	 * Implemented from Tickable.  This is what will be used to move the belt.
+	 */
 	@Override
 	public void tick(int count) {
 		// TODO Auto-generated method stub
