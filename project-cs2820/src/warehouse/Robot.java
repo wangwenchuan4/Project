@@ -26,7 +26,7 @@ public class Robot implements Tickable {
         public Point location;
         public Shelf holdingShelf;
         public Point shelfLocation;
-        public int state;
+        public int status;
         public Picker picker;
         public Dock dock;
 
@@ -34,7 +34,7 @@ public class Robot implements Tickable {
 			destination = null;
 			location = startingLocation;
 			holdingShelf = null;
-            state = idle;
+            status = idle;
             shelfLocation = null;
             picker = null;
             dock = null;
@@ -66,7 +66,7 @@ public class Robot implements Tickable {
                  * method for finding out if the robot has a mission
                  */
 		public int status(){
-			return state;
+			return status;
 				
 		}
                 /**
@@ -99,11 +99,16 @@ public class Robot implements Tickable {
                 	   destination.remove(0);
                 	   
                    }
+        }
+                   
+        public void setState(int newStat){
+        	status = newStat;
+        }
                     
                     
                     
                     
-                }
+                
 		public void tick(int count){
 			
 		}
