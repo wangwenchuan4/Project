@@ -2,6 +2,9 @@
 package warehouse;
 
 import java.util.ArrayList;
+/*
+ * TODO - Need Packer method.
+ */
 
 
 public class Belt implements Tickable {
@@ -19,22 +22,42 @@ public class Belt implements Tickable {
 		this.beltWidth = beltWidth;
 	}
 
+	/**
+	 * pauseBelt freezes the movement of the belt.  Ticker still ticks but belt is stationary.
+	 */
 	public void pauseBelt() {
 		// pause belt
 	}
 	
+	
+	/**
+	 * Resumes movement of Belt
+	 */
 	public void resumeBelt() {
 		//resume
 	}
 	
+	
+	/**
+	 * Returns an ArrayList of Bin objects currently on the Belt
+	 * @return
+	 */
 	public ArrayList<Bin> getCurrentBins() {
 		return currentBins;
 	}
 	
+	/**
+	 * Adds bin to Belt - referenced by beltID
+	 * @param binId
+	 */
 	public void addBin(Bin binId) {
 		//add bin
 	}
-	
+	/**
+	 * Removes bin from Belt.
+	 * @param binId
+	 */
+	//May need to replace with some Packer method
 	public void remove(Bin binId) {
 		//remove bin
 	}
