@@ -2,8 +2,9 @@
 package warehouse;
 
 import java.util.ArrayList;
-/*
+/**
  * TODO - Need Packer method.
+ * @author Peter Nelson
  */
 
 
@@ -15,6 +16,7 @@ public class Belt implements Tickable {
 	ArrayList<Bin> currentBins = new ArrayList<Bin>();
 	
 	String beltID;
+	
 	
 	public Belt(String beltID, int beltCapacity, double beltWidth) {
 		this.beltID = beltID;
@@ -46,12 +48,17 @@ public class Belt implements Tickable {
 		return currentBins;
 	}
 	
+	public int getNumberOfBins() {
+		return currentBins.size();
+	}
+	
 	/**
 	 * Adds bin to Belt - referenced by beltID
 	 * @param binId
 	 */
 	public void addBin(Bin binId) {
 		//add bin
+		currentBins.add(binId);
 	}
 	/**
 	 * Removes bin from Belt.
