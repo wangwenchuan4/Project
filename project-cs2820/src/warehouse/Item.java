@@ -54,20 +54,35 @@ public class Item {
 		this.shelf = null;
 	}
 	
+	/**
+	 * Getter
+	 * @author Grant Gertsen
+	 * @return the item name
+	 */
 	public String getItemName() {
 		return itemName;
 	}
 	
+	/**
+	 * Getter
+	 * @author Grant Gertsen
+	 * @return the serial number
+	 */
 	public int getSerialNumber() {
 		return serialNumber;
 	}
 	
+	/**
+	 * What shelf that item is on
+	 * @author Grant Gertsen
+	 * @return the shelf the item is on
+	 */
 	public Shelf getShelf() {
 		return shelf;
 	}
 	
 	/**
-	 * In case it's needed, updates the items shelf number.
+	 * Updates the items shelf number.
 	 * @param newShelfNumber the new shelf number.
 	 */
 	public void changeShelf(Shelf newShelf) {

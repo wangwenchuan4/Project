@@ -5,12 +5,15 @@ import java.util.*;
 /**
  * 
  * @author Grant Gertsen
- * To-Do : Change from ArrayList<Item> to HashTable<Item,count>
  */
-public class Inventory {
+public class Inventory implements Tickable{
 
 	ArrayList<Item> stock;
 	
+	/**
+	 * Create a list with all stocked items in it.
+	 * @author Grant Gertsen
+	 */
 	public Inventory() {
 		stock = new ArrayList<Item>();
 	}
@@ -18,7 +21,7 @@ public class Inventory {
 	/**
 	 * Add an item to the stock
 	 * @author Grant Gertsen
-	 * @param item
+	 * @param item the item to add
 	 */
 	public void addItem(Item item) {
 		stock.add(item);
@@ -27,7 +30,7 @@ public class Inventory {
 	/**
 	 * How many of an item is in stock
 	 * @author Grant Gertsen
-	 * @param itemName
+	 * @param itemName the item you want to check
 	 * @return how many of an item is in stock
 	 */
 	public int numberInStock(String itemName) {
@@ -43,7 +46,7 @@ public class Inventory {
 	/**
 	 * Polymorphism of above method
 	 * @author Grant Gertsen
-	 * @param serialNumber
+	 * @param serialNumber the number you want to check
 	 * @return the number of items of a given serial number in stock
 	 */
 	public int numberInStock(int serialNumber) {
@@ -57,6 +60,12 @@ public class Inventory {
 		return count;
 	}
 
+	/**
+	 * Test method
+	 * @author Grant Gertsen
+	 * @param index the index which your item is located
+	 * @return the item requested
+	 */
 	public Item getItemAtIndex(int index) {
 		Item item = stock.get(index);
 		return item;
@@ -80,7 +89,7 @@ public class Inventory {
 	/**
 	 * Finds what shelf a given item is on based off of its serial number.
 	 * @author Grant Gertsen
-	 * @param itemNumber
+	 * @param itemNumber the item number you're looking for
 	 * @return a shelf with the given item on it.
 	 */
 	public Shelf findItem(int itemNumber){
@@ -91,17 +100,10 @@ public class Inventory {
 		}
 		return null; // item not found.
 	}
+
+	@Override
+	public void tick(int count) {
+		// In progress
+		
+	}
 }
-
-
-
-
-/**
- * 
- * @author Ted Herman
- *
- *         A local class to be the catalog of available items that Inventory can
- *         use: CatItem.catalog is an array of CatItem objects, each with an id
- *         member (int) and description (String)
- *
- */

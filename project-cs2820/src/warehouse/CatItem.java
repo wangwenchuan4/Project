@@ -1,5 +1,11 @@
 package warehouse;
 
+/**
+ * 
+ * @author Ted Herman
+ * Moved to its own separate class for ease of use - Grant Gertsen
+ * Access with CatItem.catalog
+ */
 public class CatItem {
 	int id;
 	String description;
